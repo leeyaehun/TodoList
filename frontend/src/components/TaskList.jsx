@@ -1,12 +1,14 @@
 import ListItem from "./ListItem";
 
-export default function TaskList() {
+export default function TaskList(props) {
+  console.log(props);
   return (
     <ul className="task-list">
-      <ListItem title="learn react"></ListItem>
-      <ListItem title="learn node.js"></ListItem>
-      <ListItem title="learn linux"></ListItem>
-      <ListItem title="learn networking"></ListItem>
+      {props.tasks.map((entry) => {
+        console.log(entry);
+        console.log(entry.title);
+        return <ListItem title={entry.title}></ListItem>;
+      })}
     </ul>
   );
 }
